@@ -103,6 +103,11 @@ bindsym $mod+SHIFT+e 			exec $rofi_powermenu
 #bindsym $mod+d	 				exec $wofi_menu
 #bindsym $mod+x 				exec $wofi_powermenu
 
+# -- Cheat sheets --
+bindsym $alt+g 				    exec feh ~/Pictures/Cheatsheets/git1.png ~/Pictures/Cheatsheets/git2.png
+bindsym $alt+n 				    exec feh ~/Pictures/Cheatsheets/neovim.jpg
+bindsym $alt+Return 			exec feh ~/Pictures/Cheatsheets/Schedule.jpg
+
 # -- Misc --
 bindsym $mod+p 					exec $colorpicker
 #bindsym $mod+n 				exec nm-connection-editor
