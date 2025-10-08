@@ -36,6 +36,7 @@ set $foot ~/.config/sway/scripts/foot
 set $volume ~/.config/sway/scripts/volume
 set $backlight ~/.config/sway/scripts/brightness
 set $screenshot ~/.config/sway/scripts/screenshot
+set $flameshot /usr/bin/flameshot gui
 set $lockscreen ~/.config/sway/scripts/lockscreen
 set $wlogout ~/.config/sway/scripts/wlogout
 set $colorpicker ~/.config/sway/scripts/colorpicker
@@ -78,7 +79,7 @@ bindsym $mod+Return 			exec ghostty
 
 # -- GUI Apps --
 bindsym $mod+n 			        exec $files
-bindsym $mod+e 			        exec $editor
+bindsym $mod+F1 			    exec $editor
 bindsym $mod+w 			        exec $browser
 
 # -- CLI Apps --
@@ -87,15 +88,15 @@ bindsym $alt+Control+r 			exec --no-startup-id "$open_in_alacritty -e ranger"
 bindsym $alt+Control+h 			exec --no-startup-id "$open_in_alacritty -e htop"
 
 # -- Rofi --
-bindsym $alt+F1 				exec $rofi_launcher
-bindsym $alt+F2 				exec $rofi_runner
+#bindsym $alt+F1 				exec $rofi_launcher
+#bindsym $alt+F2 				exec $rofi_runner
 bindsym $mod+d	 				exec $rofi_launcher
 bindsym $mod+r	 				exec $rofi_runner
-#bindsym $mod+n 					exec $rofi_network
-bindsym $mod+x 					exec $rofi_powermenu
-bindsym $mod+m 					exec $rofi_music
-bindsym $mod+s 					exec $rofi_screenshot
-bindsym $mod+b 					exec $rofi_bluetooth
+bindsym $mod+b 				    exec $rofi_network
+bindsym $mod+SHIFT+e 			exec $rofi_powermenu
+#bindsym $mod+m 				exec $rofi_music
+#bindsym $mod+s 				exec $rofi_screenshot
+#bindsym $mod+b 				exec $rofi_bluetooth
 
 # -- Wofi --
 #bindsym $alt+F1 				exec $wofi_menu
@@ -120,11 +121,11 @@ bindsym XF86AudioPlay 			exec "mpc toggle"
 bindsym XF86AudioStop 			exec "mpc stop"
 
 # -- Screenshots --
-bindsym Print 					exec "$screenshot --now"
-bindsym $alt+Print 				exec "$screenshot --in5"
-bindsym Shift+Print 			exec "$screenshot --in10"
-bindsym Control+Print 			exec "$screenshot --win"
-bindsym $mod+Print 				exec "$screenshot --area"
+bindsym Print 					exec --no-startup-id $flameshot
+#bindsym $alt+Print 			exec "$screenshot --in5"
+#bindsym Shift+Print 			exec "$screenshot --in10"
+#bindsym Control+Print 			exec "$screenshot --win"
+#bindsym $mod+Print 			exec "$screenshot --area"
 
 # -- Lockscreen --
 bindsym $alt+Control+l 			exec "$lockscreen"
@@ -149,7 +150,7 @@ bindsym $mod+h split horizontal, $send-notify 'Split Horizontally'
 ## split in vertical orientation
 bindsym $mod+v split vertical, $send-notify 'Split Vertically'
 ## toggle split
-bindsym $mod+g split toggle, $send-notify 'Split Mode'
+#bindsym $mod+g split toggle, $send-notify 'Split Mode'
 
 #------
 
@@ -157,15 +158,15 @@ bindsym $mod+g split toggle, $send-notify 'Split Mode'
 ##
 ## change container layout (stacked, tabbed, toggle split)
 ## Set stacking layout
-bindsym $mod+Shift+s layout stacking, $send-notify 'Layout - Stacking'
+#bindsym $mod+Shift+s layout stacking, $send-notify 'Layout - Stacking'
 ## Set tabbed layout
-bindsym $mod+Shift+t layout tabbed, $send-notify 'Layout - Tabbed'
+bindsym $mod+Shift+s layout tabbed, $send-notify 'Layout - Tabbed'
 ## Set default layout
-bindsym $mod+Shift+d layout default, $send-notify 'Layout - Default'
+#bindsym $mod+Shift+d layout default, $send-notify 'Layout - Default'
 ## Toggle between stacking/tabbed/split:
-bindsym $mod+Shift+l layout toggle, $send-notify 'Cycling Layouts'
+#bindsym $mod+Shift+l layout toggle, $send-notify 'Cycling Layouts'
 ## Toggle between horizontal/vertical:
-bindsym $mod+Shift+v layout toggle split, $send-notify 'Layout - Hor/Vert'
+bindsym $mod+e layout toggle split, $send-notify 'Layout - Hor/Vert'
 ## Toggle fullscreen
 bindsym $mod+f fullscreen toggle, $send-notify 'Toggled Fullscreen'
 ## Toggle floating/tiling
@@ -185,11 +186,11 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 ## Sets focus to the parent container of the current container.
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 ## The opposite of `focus parent`, sets the focus to the last focused child container.
-bindsym $mod+z focus child
+#bindsym $mod+z focus child
 ## Automatically sets focus to the adjacent container.
-bindsym $mod+Tab focus next
+#bindsym $mod+Tab focus next
 ## Toggles focus between floating/tiling containers.
 bindsym $mod+Shift+space focus mode_toggle
 
@@ -242,7 +243,7 @@ bindsym $mod+Shift+minus scratchpad show
 ## reload the configuration file
 bindsym $mod+Shift+c reload, $send-notify 'Configuration Reloaded!'
 ## quit sway session
-bindsym $mod+Shift+q exit
+#bindsym $mod+Shift+q exit
 
 #------
 
@@ -287,8 +288,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 ##-- Rules -------------------------------
 #assign [app_id="foot"] → workspace number 1
-#assign [class="firefox"] → workspace number 2
-#assign [app_id="thunar"] → workspace number 3
+assign [app_id="zen"] → workspace number 2
+assign [app_id="thunar"] → workspace number 3
 #assign [app_id="geany"] → workspace number 4
 
 for_window [window_role="pop-up"] floating enable
