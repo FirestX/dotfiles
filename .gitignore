@@ -2,4 +2,6 @@
 
 !nvim
 !nvim/**
+!sway
+!sway/**
 !.gitignore
