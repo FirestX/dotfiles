@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Calendar script for EWW
+# Simple calendar display
+
+case "$1" in
+    "--popup")
+        # Show calendar in a popup (you can customize this)
+        notify-send "Calendar" "$(cal)"
+        ;;
+    *)
+        # Default action - show calendar
+        notify-send "Calendar" "$(cal)"
+        ;;
+esac

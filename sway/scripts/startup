@@ -5,7 +5,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(waybar mako)
+_ps=(waybar eww mako)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall -9 ${_prs}
@@ -20,8 +20,8 @@ fi
 # Lauch notification daemon (mako)
 ~/.config/sway/scripts/notifications &
 
-# Lauch statusbar (waybar)
-~/.config/sway/scripts/statusbar &
+# Launch statusbar (eww)
+~/.config/sway/scripts/ewwbar &
 
 # Start network manager applet
 nm-applet --indicator &

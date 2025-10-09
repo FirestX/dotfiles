@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Window title script for EWW
+# Based on Waybar sway/window module
+
+get_window_title() {
+    swaymsg -t get_tree | jq -r '
+        .. | 
+        select(.type? == "con" and .focused? == true) | 
+        .name // "Desktop"
+    ' | head -1
+}
+
+# Initial output  
+get_window_title
+
+# Monitor window changes
+swaymsg -t subscribe -m '["window"]' | while read -r line; do
+    get_window_title
+done

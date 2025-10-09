@@ -1,0 +1,199 @@
+// EWW Styling - Migrated from Waybar
+// Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+
+// Colors (matching waybar colors.css)
+$background: #121212;
+$background-alt: #1f1f1f;
+$foreground: #e2e3e3;
+$selected: #C19862;
+$black: #121212;
+$red: #D17805;
+$green: #F39004;
+$yellow: #F39C13;
+$blue: #C19862;
+$magenta: #798284;
+$cyan: #A2A29F;
+$white: #e2e3e3;
+
+// Global styling
+* {
+    all: unset;
+    font-family: "JetBrains Mono", "Iosevka Nerd Font", archcraft, sans-serif;
+    font-size: 12px;
+}
+
+// Main bar window
+.bar {
+    background-color: $background;
+    color: $background;
+    border-bottom: 2px solid $background-alt;
+    padding: 6px;
+}
+
+// Left section
+.left {
+    margin-left: 0px;
+}
+
+// Right section  
+.right {
+    margin-right: 0px;
+}
+
+// Workspaces
+.workspaces {
+    background-color: $background-alt;
+    color: $foreground;
+    border-radius: 0px 12px 0px 0px;
+    padding: 4px;
+}
+
+.workspace {
+    color: $foreground;
+    padding: 2px 6px;
+    margin: 0px 1px;
+    background: transparent;
+    border-radius: 0px;
+    
+    &:hover {
+        background-color: $background;
+        color: $white;
+        border-radius: 12px;
+    }
+    
+    &.visible {
+        background: linear-gradient(to right, $blue, $green);
+        color: $background;
+        border-radius: 12px;
+    }
+    
+    &.focused {
+        background: linear-gradient(to right, $red, $magenta);
+        color: $background;
+        border-radius: 12px;
+    }
+    
+    &.urgent {
+        background: linear-gradient(to right, $red, $yellow);
+        color: $background;
+        border-radius: 12px;
+    }
+}
+
+// Window title
+.window {
+    background-color: $background-alt;
+    color: $white;
+    padding: 2px 10px;
+    margin: 6px 0px;
+    border-radius: 12px;
+}
+
+// Clock
+.clock {
+    background: linear-gradient(to right, $red, $blue);
+    color: $background;
+    border-radius: 12px;
+    margin: 6px 0px;
+    padding: 2px 10px;
+}
+
+// Battery
+.battery {
+    background: linear-gradient(to right, $cyan, $red);
+    color: $background;
+    border-radius: 12px;
+    margin: 6px 0px;
+    padding: 2px 10px;
+    
+    &.charging {
+        // Animation or special styling for charging
+    }
+    
+    &.critical {
+        background-color: $red;
+        color: $white;
+        animation: blink 0.5s linear infinite alternate;
+    }
+}
+
+@keyframes blink {
+    to {
+        color: $black;
+    }
+}
+
+// Network
+.network {
+    background: linear-gradient(to right, $magenta, $cyan);
+    color: $background;
+    border-radius: 12px;
+    margin: 6px 0px;
+    padding: 2px 10px;
+    
+    &.disconnected {
+        background: linear-gradient(to right, $red, $yellow);
+    }
+    
+    &.disabled {
+        background: linear-gradient(to right, $red, $red);
+        color: $white;
+    }
+}
+
+// Pulseaudio
+.pulseaudio {
+    background: linear-gradient(to right, $blue, $green);
+    color: $background;
+    border-radius: 12px;
+    margin: 6px 0px;
+    padding: 2px 10px;
+    
+    &.bluetooth {
+        background: linear-gradient(to right, $green, $yellow);
+    }
+    
+    &.muted {
+        background: linear-gradient(to right, $red, $yellow);
+    }
+}
+
+// Backlight
+.backlight {
+    background: linear-gradient(to right, $green, $magenta);
+    color: $background;
+    border-radius: 12px;
+    margin: 6px 0px;
+    padding: 2px 10px;
+}
+
+// Idle inhibitor
+.idle_inhibitor {
+    background: linear-gradient(to right, $magenta, $yellow);
+    color: $background;
+    border-radius: 12px;
+    margin: 6px 0px;
+    padding: 2px 10px;
+    
+    &.deactivated {
+        background: linear-gradient(to right, $red, $yellow);
+    }
+}
+
+// Themes
+.themes {
+    background-color: $selected;
+    color: $background;
+    border-radius: 12px;
+    margin: 6px 0px;
+    padding: 2px 10px;
+}
+
+// Tray
+.tray {
+    background-color: $background-alt;
+    border-radius: 12px 0px 0px 0px;
+    padding: 4px 6px;
+    margin: 6px 0px;
+    color: $foreground;
+}

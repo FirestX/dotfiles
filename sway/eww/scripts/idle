@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Idle inhibitor script for EWW
+# Based on Waybar idle_inhibitor module
+
+INHIBITOR_FILE="/tmp/eww_idle_inhibitor"
+
+get_idle_status() {
+    if [[ -f "$INHIBITOR_FILE" ]] && pgrep -f "swayidle" > /dev/null; then
+        # Inhibitor is active (swayidle is running but inhibited)
+        echo "deactivated" ""
+    elif pgrep -f "swayidle" > /dev/null; then
+        # swayidle is running normally
+        echo "activated" ""
+    else
+        # swayidle is not running
+        echo "deactivated" ""
+    fi
+}
+
+toggle_idle() {
+    if [[ -f "$INHIBITOR_FILE" ]]; then
+        # Remove inhibitor
+        rm "$INHIBITOR_FILE"
+        # Kill any existing swayidle inhibitor processes
+        pkill -f "swayidle.*inhibit"
+        # Restart normal swayidle
+        ~/.config/sway/scripts/startup &
+    else
+        # Create inhibitor
+        touch "$INHIBITOR_FILE"
+        # Kill existing swayidle
+        pkill swayidle
+        # Start inhibited swayidle (or no idle management)
+        # You can customize this behavior
+    fi
+}
+
+case "$1" in
+    "--icon")
+        read -r class icon <<< "$(get_idle_status)"
+        echo "$icon"
+        ;;
+    "--class")
+        read -r class icon <<< "$(get_idle_status)"
+        echo "$class"
+        ;;
+    "--toggle")
+        toggle_idle
+        ;;
+    *)
+        echo "Usage: $0 [--icon|--class|--toggle]"
+        exit 1
+        ;;
+esac

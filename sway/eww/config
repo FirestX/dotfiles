@@ -1,0 +1,18 @@
+# EWW Configuration
+# This file can be used to store EWW-specific settings
+
+# Bar configuration
+BAR_HEIGHT=32
+BAR_MONITOR=0
+
+# Update intervals (in seconds)
+WORKSPACE_UPDATE_INTERVAL=1
+WINDOW_UPDATE_INTERVAL=1  
+BATTERY_UPDATE_INTERVAL=10
+NETWORK_UPDATE_INTERVAL=5
+AUDIO_UPDATE_INTERVAL=1
+BRIGHTNESS_UPDATE_INTERVAL=2
+IDLE_UPDATE_INTERVAL=2
+
+# Script paths
+SCRIPT_DIR="$HOME/.config/sway/eww/scripts"

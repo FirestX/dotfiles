@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Network script for EWW
+# Based on Waybar network module
+
+get_network_info() {
+    # Check for active network interface
+    active_interface=$(ip route | grep default | head -1 | awk '{print $5}')
+    
+    if [[ -z "$active_interface" ]]; then
+        echo "disconnected" "睊" "Disconnected"
+        return
+    fi
+    
+    # Check if it's wifi or ethernet
+    if [[ "$active_interface" =~ ^wl ]]; then
+        # WiFi interface
+        if command -v iwgetid >/dev/null 2>&1; then
+            ssid=$(iwgetid -r "$active_interface" 2>/dev/null)
+            if [[ -n "$ssid" ]]; then
+                echo "connected" "" "$ssid"
+            else
+                echo "disconnected" "睊" "Disconnected"
+            fi
+        else
+            echo "connected" "" "WiFi"
+        fi
+    elif [[ "$active_interface" =~ ^en|^eth ]]; then
+        # Ethernet interface
+        ip_addr=$(ip addr show "$active_interface" | grep 'inet ' | head -1 | awk '{print $2}')
+        if [[ -n "$ip_addr" ]]; then
+            echo "connected" "" "$ip_addr"
+        else
+            echo "linked" "" "${active_interface} (No IP)"
+        fi
+    else
+        # Unknown interface type
+        echo "connected" "" "$active_interface"
+    fi
+}
+
+case "$1" in
+    "--name")
+        read -r class icon name <<< "$(get_network_info)"
+        echo "$name"
+        ;;
+    "--icon")
+        read -r class icon name <<< "$(get_network_info)"
+        echo "$icon"
+        ;;
+    "--class")
+        read -r class icon name <<< "$(get_network_info)"
+        echo "$class"
+        ;;
+    *)
+        echo "Usage: $0 [--name|--icon|--class]"
+        exit 1
+        ;;
+esac

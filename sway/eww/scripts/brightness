@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Brightness script for EWW  
+# Based on Waybar backlight module
+
+get_brightness_info() {
+    if command -v light >/dev/null 2>&1; then
+        level=$(light -G | cut -d. -f1)
+    elif command -v brightnessctl >/dev/null 2>&1; then
+        level=$(brightnessctl get)
+        max_brightness=$(brightnessctl max)
+        level=$((level * 100 / max_brightness))
+    else
+        level=50  # Default fallback
+    fi
+    
+    # Determine icon based on brightness level
+    if [[ $level -ge 75 ]]; then
+        icon=""
+    elif [[ $level -ge 50 ]]; then
+        icon=""
+    elif [[ $level -ge 25 ]]; then
+        icon=""
+    else
+        icon=""
+    fi
+    
+    echo "$level" "$icon"
+}
+
+handle_scroll() {
+    direction="$1"
+    if [[ "$direction" == "up" ]]; then
+        ~/.config/sway/scripts/brightness --inc
+    elif [[ "$direction" == "down" ]]; then
+        ~/.config/sway/scripts/brightness --dec
+    fi
+}
+
+case "$1" in
+    "--level")
+        read -r level icon <<< "$(get_brightness_info)"
+        echo "$level"
+        ;;
+    "--icon")
+        read -r level icon <<< "$(get_brightness_info)"
+        echo "$icon"
+        ;;
+    "--scroll")
+        handle_scroll "$2"
+        ;;
+    *)
+        echo "Usage: $0 [--level|--icon|--scroll up/down]"
+        exit 1
+        ;;
+esac

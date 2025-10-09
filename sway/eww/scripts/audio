@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# Audio script for EWW
+# Based on Waybar pulseaudio module
+
+get_audio_info() {
+    if command -v pulsemixer >/dev/null 2>&1; then
+        # Use pulsemixer
+        volume=$(pulsemixer --get-volume | awk '{print $1}')
+        muted=$(pulsemixer --get-mute)
+        
+        if [[ "$muted" == "1" ]]; then
+            echo "muted" "" "$volume"
+        else
+            # Determine icon based on volume level
+            if [[ $volume -ge 70 ]]; then
+                icon=""
+            elif [[ $volume -ge 30 ]]; then
+                icon=""
+            elif [[ $volume -gt 0 ]]; then
+                icon=""
+            else
+                icon=""
+            fi
+            echo "normal" "$icon" "$volume"
+        fi
+    elif command -v pamixer >/dev/null 2>&1; then
+        # Use pamixer as fallback
+        volume=$(pamixer --get-volume)
+        muted=$(pamixer --get-mute)
+        
+        if [[ "$muted" == "true" ]]; then
+            echo "muted" "" "$volume"
+        else
+            if [[ $volume -ge 70 ]]; then
+                icon=""
+            elif [[ $volume -ge 30 ]]; then
+                icon=""
+            elif [[ $volume -gt 0 ]]; then
+                icon=""
+            else
+                icon=""
+            fi
+            echo "normal" "$icon" "$volume"
+        fi
+    else
+        echo "normal" "" "0"
+    fi
+}
+
+handle_scroll() {
+    direction="$1"
+    if [[ "$direction" == "up" ]]; then
+        ~/.config/sway/scripts/volume --inc
+    elif [[ "$direction" == "down" ]]; then
+        ~/.config/sway/scripts/volume --dec
+    fi
+}
+
+case "$1" in
+    "--volume")
+        read -r class icon volume <<< "$(get_audio_info)"
+        echo "$volume"
+        ;;
+    "--icon")
+        read -r class icon volume <<< "$(get_audio_info)"
+        echo "$icon"
+        ;;
+    "--class")
+        read -r class icon volume <<< "$(get_audio_info)"
+        echo "$class"
+        ;;
+    "--scroll")
+        handle_scroll "$2"
+        ;;
+    *)
+        echo "Usage: $0 [--volume|--icon|--class|--scroll up/down]"
+        exit 1
+        ;;
+esac

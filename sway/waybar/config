@@ -22,7 +22,7 @@
     "ipc": true, 					// Control waybar with `swaymsg bar` commands
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-center": ["mpd"],
+    "modules-center": [""],
 	//"modules-center": ["custom/spotify"],
     "modules-right": ["custom/themes", "idle_inhibitor", "pulseaudio", "backlight", "network", "battery", "clock", "tray"],
 }

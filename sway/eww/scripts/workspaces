@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Workspaces script for EWW - monitors Sway workspaces
+# Based on Waybar sway/workspaces module
+
+# Workspace icons mapping (matching waybar config)
+declare -A icons=(
+    ["1"]=""
+    ["2"]=""
+    ["3"]=""
+    ["4"]=""
+    ["5"]=""
+    ["6"]="漣"
+    ["7"]=""
+    ["8"]=""
+    ["9"]=""
+    ["10"]="ﳴ"
+)
+
+get_workspaces() {
+    swaymsg -t get_workspaces | jq -c '[
+        .[] | {
+            num: .num,
+            name: .name,
+            focused: .focused,
+            visible: .visible,
+            urgent: .urgent,
+            icon: (if .num <= 10 then 
+                     (["", "", "", "", "", "漣", "", "", "", "ﳴ"][.num - 1] // "")
+                   else "" end)
+        }
+    ]'
+}
+
+# Initial output
+get_workspaces
+
+# Monitor workspace changes
+swaymsg -t subscribe -m '["workspace"]' | while read -r line; do
+    get_workspaces
+done
