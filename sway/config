@@ -58,6 +58,8 @@ set $wofi_powermenu ~/.config/sway/scripts/wofi_powermenu
 
 set $open_in_alacritty alacritty --config-file ~/.config/sway/alacritty/alacritty.toml
 
+set $open_in_glow ghostty --class=ghostty.glow -e glow -p
+
 ##-- Startup Programs --------------------
 exec_always ~/.config/sway/scripts/startup
 #exec_always ~/.config/sway/scripts/clamshell
@@ -109,6 +111,7 @@ bindsym $mod+SHIFT+e 			exec $rofi_powermenu
 bindsym $alt+g 				    exec feh ~/Pictures/Cheatsheets/git1.png ~/Pictures/Cheatsheets/git2.png
 bindsym $alt+n 				    exec feh ~/Pictures/Cheatsheets/neovim.jpg
 bindsym $alt+Return 			exec feh ~/Pictures/Cheatsheets/Schedule.jpg
+bindsym $alt+i 				    exec $open_in_glow ~/Pictures/Cheatsheets/sway.md
 
 # -- Misc --
 bindsym $mod+p 					exec $colorpicker
@@ -310,6 +313,8 @@ for_window [app_id="io.calamares.calamares"] floating enable
 for_window [title="Archcraft Installer"] floating enable
 for_window [class="Yad|feh|Viewnior|Gpicview|Gimp|MPlayer"] floating enable
 for_window [class="VirtualBox Manager|qemu|Qemu-system-x86_64"] floating enable
+for_window [app_id="ghostty.glow"] floating enable
+for_window [app_id="ghostty.glow"] resize set 900 1000
 
 ##-- Misc --------------------------------
 include /etc/sway/config.d/*
