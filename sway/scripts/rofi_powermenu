@@ -43,12 +43,19 @@ rofi_cmd() {
 		-p "$prompt" \
 		-mesg "$mesg" \
 		-markup-rows \
-		-theme ${RASI}
+		-theme ${RASI} \
+		-kb-custom-1 "l" \
+		-kb-custom-2 "e" \
+		-kb-custom-3 "s" \
+		-kb-custom-4 "h" \
+		-kb-custom-5 "r" \
+		-kb-custom-6 "Shift+s"
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
 	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
+	return $?
 }
 
 # Confirmation CMD
@@ -93,23 +100,48 @@ run_cmd() {
 
 # Actions
 chosen="$(run_rofi)"
-case ${chosen} in
-    $option_1)
-		run_cmd --opt1
+exit_code=$?
+
+# Handle keyboard shortcuts (custom keybindings)
+case $exit_code in
+    10) # kb-custom-1 (l for lock)
+        run_cmd --opt1
         ;;
-    $option_2)
-		run_cmd --opt2
+    11) # kb-custom-2 (e for exit/logout)
+        run_cmd --opt2
         ;;
-    $option_3)
-		run_cmd --opt3
+    12) # kb-custom-3 (s for suspend)
+        run_cmd --opt3
         ;;
-    $option_4)
-		run_cmd --opt4
+    13) # kb-custom-4 (h for hibernate)
+        run_cmd --opt4
         ;;
-    $option_5)
-		run_cmd --opt5
+    14) # kb-custom-5 (r for reboot)
+        run_cmd --opt5
         ;;
-    $option_6)
-		run_cmd --opt6
+    15) # kb-custom-6 (shift+s for shutdown)
+        run_cmd --opt6
+        ;;
+    0) # Normal selection
+        case ${chosen} in
+            $option_1)
+                run_cmd --opt1
+                ;;
+            $option_2)
+                run_cmd --opt2
+                ;;
+            $option_3)
+                run_cmd --opt3
+                ;;
+            $option_4)
+                run_cmd --opt4
+                ;;
+            $option_5)
+                run_cmd --opt5
+                ;;
+            $option_6)
+                run_cmd --opt6
+                ;;
+        esac
         ;;
 esac
