@@ -26,7 +26,7 @@ focus_follows_mouse yes
 floating_modifier $mod normal
 mouse_warping none
 popup_during_fullscreen smart
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no
 focus_on_window_activation smart
 show_marks yes
 
@@ -300,9 +300,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 ##-- Rules -------------------------------
 #assign [app_id="foot"] → workspace number 1
-assign [app_id="zen"] → workspace number 2
-assign [app_id="thunar"] → workspace number 3
-assign [app_id="org.telegram.desktop"] → workspace number 4
+for_window [app_id="zen"] move container to workspace number 2, focus
+for_window [app_id="thunar"] move container to workspace number 3, focus
+for_window [app_id="org.telegram.desktop"] move container to workspace number 4, focus
 #assign [app_id="geany"] → workspace number 4
 
 for_window [window_role="pop-up"] floating enable
