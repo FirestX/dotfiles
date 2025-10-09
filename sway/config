@@ -126,6 +126,7 @@ bindsym XF86AudioNext 			exec "mpc next"
 bindsym XF86AudioPrev 			exec "mpc prev"
 bindsym XF86AudioPlay 			exec "mpc toggle"
 bindsym XF86AudioStop 			exec "mpc stop"
+bindsym XF86PowerOff            exec $rofi_powermenu
 
 # -- Screenshots --
 bindsym Print 					exec --no-startup-id $flameshot
