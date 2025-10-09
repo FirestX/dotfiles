@@ -29,3 +29,5 @@ nm-applet --indicator &
 # Start mpd
 exec mpd &
 
+# Start autotiling
+exec_always /usr/bin/autotiling --limit 2 &
