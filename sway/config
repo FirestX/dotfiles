@@ -62,6 +62,7 @@ set $open_in_glow ghostty --class=ghostty.glow -e glow -p
 
 ##-- Startup Programs --------------------
 exec_always ~/.config/sway/scripts/startup
+exec_always /usr/bin/autotiling
 #exec_always ~/.config/sway/scripts/clamshell
 
 ##-- Keybindings -------------------------
