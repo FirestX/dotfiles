@@ -70,7 +70,7 @@
 		"rotate": 0,
         //"timezone": "America/New_York",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " {:%H:%M}",
+        "format": "{:%d - %H:%M}",
         "format-alt": " {:%a %b %d, %G}"
     },
 
@@ -97,7 +97,14 @@
 
 	// waybar-inhibitor
 	// waybar-keyboard-state
-	// waybar-memory
+	
+    "memory": {
+        "interval": 30,
+        "format": " {used}GB",
+        "format-alt": " {used}/{total}GB",
+        "tooltip": true,
+        "tooltip-format": "Used: {used} GB\nFree: {free} GB\nTotal: {total} GB\nShared: {shared} GB\nBuffers: {buffers} GB\nCached: {cached} GB",
+    },
 
 	// waybar-spotify
     "custom/spotify": {
@@ -223,7 +230,11 @@
         "current-only": false,
     },
 
-	// waybar-temperature
+	"temperature": {
+		"format": " {temperatureC}°C",
+        "format-alt": " {temperatureC}°C",
+        "tooltip": true,
+	},
 
 	// waybar-tray
     "tray": {
