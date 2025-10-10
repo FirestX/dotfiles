@@ -243,6 +243,16 @@ window#waybar.empty #window {
 	background-image: linear-gradient(to right, @red , @yellow);
 }
 
+/** ********** Memory ********** **/
+#memory {
+	background-image: linear-gradient(to right, @green , @magenta);
+}
+
+/** ********** Temperature ********** **/
+#temperature {
+	background-image: linear-gradient(to right, @yellow , @magenta);
+}
+
 /** ********** Network ********** **/
 #network {
 	background-image: linear-gradient(to right, @magenta , @cyan);
@@ -294,6 +304,8 @@ window#waybar.empty #window {
 #battery,
 #clock,
 #idle_inhibitor,
+#memory,
+#temperature,
 #mode,
 #window,
 #mpd,
