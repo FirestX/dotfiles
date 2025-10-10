@@ -73,11 +73,11 @@ exec_always /usr/bin/autotiling
 #bindsym $mod+$alt+Return 		exec $alacritty -F
 
 # -- Terminal : ghostty --
-bindsym $mod+Return 			exec ghostty
+#bindsym $mod+Return 			exec ghostty
 
 # -- Terminal :foot --
-#bindsym $mod+Return 			exec $foot
-#bindsym $mod+Shift+Return 		exec $foot -f
+bindsym $mod+Return 			exec $foot
+bindsym $mod+Shift+Return 		exec $foot -f
 #bindsym $mod+$alt+Return 		exec $foot -s
 #bindsym $mod+t 				exec $foot -F
 
