@@ -80,7 +80,7 @@ window#waybar.geany {
 
 #workspaces button {
 	color: @foreground;
-	padding: 2px 6px;
+	padding: 2px 8px 2px 4px;
 }
 
 #workspaces button:hover {
@@ -113,7 +113,7 @@ window#waybar.geany {
 #workspaces button.persistent {
 	color: @background;
 	border-radius: 12px;
-	padding: 2px 6px;
+	padding: 2px 8px 2px 4px;
 }
 
 #workspaces button.current_output {
