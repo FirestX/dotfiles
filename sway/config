@@ -109,8 +109,8 @@ bindsym $mod+SHIFT+e 			exec $rofi_powermenu
 
 # -- Cheat sheets --
 bindsym $alt+g 				    exec feh ~/Pictures/Cheatsheets/git1.png ~/Pictures/Cheatsheets/git2.png
-bindsym $alt+n 				    exec feh ~/Pictures/Cheatsheets/neovim.jpg
 bindsym $alt+Return 			exec feh ~/Pictures/Cheatsheets/Schedule.jpg
+bindsym $alt+n 				    exec $open_in_glow ~/Pictures/Cheatsheets/neovim.md
 bindsym $alt+i 				    exec $open_in_glow ~/Pictures/Cheatsheets/sway.md
 
 # -- Misc --
