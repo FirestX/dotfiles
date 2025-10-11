@@ -57,8 +57,7 @@ set $wofi_menu ~/.config/sway/scripts/wofi_menu
 set $wofi_powermenu ~/.config/sway/scripts/wofi_powermenu
 
 set $open_in_alacritty alacritty --config-file ~/.config/sway/alacritty/alacritty.toml
-
-set $open_in_glow ghostty --class=ghostty.glow -e glow -p
+set $open_in_glow foot --app-id "glow_md" --config ~/.config/sway/foot/foot.ini -e glow -p
 
 ##-- Startup Programs --------------------
 exec_always ~/.config/sway/scripts/startup
@@ -314,10 +313,9 @@ for_window [app_id="io.calamares.calamares"] floating enable
 for_window [title="Archcraft Installer"] floating enable
 for_window [class="Yad|feh|Viewnior|Gpicview|Gimp|MPlayer"] floating enable
 for_window [class="VirtualBox Manager|qemu|Qemu-system-x86_64"] floating enable
-for_window [app_id="ghostty.glow"] floating enable
-for_window [app_id="ghostty.glow"] resize set 900 1000
-
-bindswitch --locked lid:on exec systemctl suspend
+for_window [app_id="glow_md"] floating enable
+for_window [app_id="glow_md"] resize set 900 1000
 
 ##-- Misc --------------------------------
 include /etc/sway/config.d/*
+bindswitch --locked lid:on exec systemctl suspend
