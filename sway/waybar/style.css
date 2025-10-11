@@ -253,6 +253,11 @@ window#waybar.empty #window {
 	background-image: linear-gradient(to right, @yellow , @magenta);
 }
 
+/** ********** Language ********** **/
+#language {
+	background-image: linear-gradient(to right, @magenta , @cyan);
+}
+
 /** ********** Network ********** **/
 #network {
 	background-image: linear-gradient(to right, @magenta , @cyan);
@@ -312,6 +317,7 @@ window#waybar.empty #window {
 #custom-spotify,
 #pulseaudio,
 #network,
+#language,
 #bluetooth,
 #custom-themes {
 	border-radius: 12px;

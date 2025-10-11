@@ -188,7 +188,9 @@
 	// waybar-river-tags
 	// waybar-sndio
 	// waybar-states
-	// waybar-sway-language
+	"sway/language": {
+    "format": "{short}"
+  },
 
 	// waybar-sway-mode
     "sway/mode": {
