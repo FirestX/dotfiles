@@ -14,10 +14,9 @@ input "*" {
 
 # Keyboard Layout
 input "type:keyboard" {
-    xkb_layout it,ru
-    xkb_variant ,
+    xkb_layout it,ru,us
+    xkb_variant ,,colemak
     xkb_options grp:alt_shift_toggle
     repeat_delay 300
     repeat_rate 30
 }
-
