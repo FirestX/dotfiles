@@ -2,6 +2,7 @@
 
 !nvim
 !nvim/**
+nvim/lazy-lock.json
 !sway
 !sway/**
 !.gitignore

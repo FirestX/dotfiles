@@ -36,7 +36,7 @@ return {
         "vimdoc",
         "html",
         "css",
-      
+
         -- !
         "c_sharp",
         "razor"
@@ -52,11 +52,11 @@ return {
       },
       ensure_installed = {
         "lua-language-server",
-        
+
         "xmlformatter",
         "csharpier",
         "prettier",
-      
+
         "stylua",
         "bicep-lsp",
         "html-lsp",
