@@ -82,9 +82,9 @@ return {
     opts = {
       -- your configuration comes here; leave empty for default settings
     },
-},
+  },
 
-{
+  {
     -- Debug Framework
     "mfussenegger/nvim-dap",
     dependencies = {
@@ -131,4 +131,27 @@ return {
     'ramboe/ramboe-dotnet-utils',
     dependencies = { 'mfussenegger/nvim-dap' }
   },
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- or if using mini.icons/mini.nvim
+    -- dependencies = { "echasnovski/mini.icons" },
+    opts = {}
+  },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+  },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  }
 }
