@@ -112,6 +112,7 @@ bindsym $alt+g 				    exec feh ~/Pictures/Cheatsheets/git1.png ~/Pictures/Cheat
 bindsym $alt+Return 			exec feh ~/Pictures/Cheatsheets/Schedule.jpg
 bindsym $alt+n 				    exec $open_in_glow ~/Pictures/Cheatsheets/neovim.md
 bindsym $alt+i 				    exec $open_in_glow ~/Pictures/Cheatsheets/sway.md
+bindsym $alt+t 				    exec $open_in_glow ~/Pictures/Cheatsheets/tmux.md
 
 # -- Misc --
 bindsym $mod+p 					exec $colorpicker
