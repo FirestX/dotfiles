@@ -17,12 +17,12 @@ harpoon:setup()
 map("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon: Add file" })
 map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon: Menu" })
 
-for i = 1, 4 do
+for i = 1, 5 do
   map("n", "<leader>" .. i, function() harpoon:list():select(i) end, { desc = "Harpoon: Jump to file " .. i })
 end
 
 -- Copilot
 vim.g.copilot_no_tab_map = true
-map("i", "<S-Tab>", function()
-  require("copilot.suggestion").accept()
+map("i", "<M-Tab>", function()
+  require("copilot.suggestion").accept_line()
 end, { expr = true, replace_keycodes = false, desc = "Accept Copilot suggestion" })
