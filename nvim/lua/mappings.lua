@@ -1,30 +1,28 @@
-require "nvchad.mappings"
-
--- add yours here
+require("nvchad.mappings")
 
 local map = vim.keymap.set
-
 vim.g.mapleader = " "
+
+-- General
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 
 -- FZF
-vim.keymap.set("n", "<leader>ff", require("fzf-lua").files, { noremap = true, silent = true })
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", "<leader>ff", require("fzf-lua").files, { noremap = true, silent = true, desc = "Find files (fzf)" })
 
 -- Harpoon
 local harpoon = require("harpoon")
 harpoon:setup()
-map('n', '<leader>a', function() require('harpoon'):list():add() end, { desc = 'Harpoon: Add File' })
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-map('n', '<leader>1', function() require('harpoon'):list():select(1) end, { desc = 'Harpoon: Jump to File 1' })
-map('n', '<leader>2', function() require('harpoon'):list():select(2) end, { desc = 'Harpoon: Jump to File 2' })
-map('n', '<leader>3', function() require('harpoon'):list():select(3) end, { desc = 'Harpoon: Jump to File 3' })
-map('n', '<leader>4', function() require('harpoon'):list():select(4) end, { desc = 'Harpoon: Jump to File 4' })
+
+map("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon: Add file" })
+map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon: Menu" })
+
+for i = 1, 4 do
+  map("n", "<leader>" .. i, function() harpoon:list():select(i) end, { desc = "Harpoon: Jump to file " .. i })
+end
 
 -- Copilot
 vim.g.copilot_no_tab_map = true
-map('i', '<S-Tab>', function() require("copilot.suggestion").accept() end, { expr = true, replace_keycodes = false })
-
--- Diagnostics
-map('n', '<leader>da', vim.diagnostic.open_float, { desc = 'Open Diagnostics Float' })
+map("i", "<S-Tab>", function()
+  require("copilot.suggestion").accept()
+end, { expr = true, replace_keycodes = false, desc = "Accept Copilot suggestion" })
