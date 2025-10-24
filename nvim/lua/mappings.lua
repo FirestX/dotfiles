@@ -6,6 +6,11 @@ vim.g.mapleader = " "
 -- General
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
+map("n", "x", '"_x', { desc = "Delete without copying to register" })
+map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down and center cursor" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Half-page up and center cursor" })
+map("n", "n", "nzzzv", { desc = "Next search and center" })
+map("n", "N", "Nzzzv", { desc = "Previous search and center" })
 
 -- FZF
 local fzf = require("fzf-lua")
