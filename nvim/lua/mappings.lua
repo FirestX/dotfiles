@@ -8,7 +8,14 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 
 -- FZF
-map("n", "<leader>ff", require("fzf-lua").files, { noremap = true, silent = true, desc = "Find files (fzf)" })
+local fzf = require("fzf-lua")
+
+map("n", "<leader>ff", fzf.files, { noremap = true, silent = true, desc = "Find files (fzf)" })
+map("n", "<leader>fg", fzf.live_grep, { noremap = true, silent = true, desc = "Live grep" })
+map("n", "<leader>fb", fzf.buffers, { noremap = true, silent = true, desc = "Find buffers" })
+
+-- Oil
+map("n", "<leader>o", function() require("oil").open_float() end, { desc = "Open Oil file explorer" })
 
 -- Harpoon
 local harpoon = require("harpoon")
