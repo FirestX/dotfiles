@@ -36,7 +36,6 @@ return {
         "vimdoc",
         "html",
         "css",
-
         -- !
         "c_sharp",
         "razor"
@@ -65,7 +64,6 @@ return {
         "typescript-language-server",
         "json-lsp",
         "rust-analyzer",
-
         -- !
         "roslyn",
         "rzls",
@@ -153,5 +151,13 @@ return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
-  }
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = false,
+    opts = {
+      suggestion = { enabled = true, auto_trigger = true },
+      panel = { enabled = true },
+    }
+  },
 }
