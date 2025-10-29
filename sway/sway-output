@@ -19,6 +19,6 @@ output * bg /home/maksym/.config/sway/wallpapers/wallpaper.jpg fill
 
 ## HiDPI
 #~ Internal monitor with default scale
-#output eDP-1 scale 1
+output DP-1 scale 1.25 mode 2560x1440@180HZ
 #~ External monitor with twice scale
-#output HDMI-A-1 scale 2
+output HDMI-A-1 scale 1 mode 1920x1080@75HZ

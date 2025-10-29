@@ -201,12 +201,12 @@ window#waybar.empty #window {
 /** ********** Spotify ********** **/
 #custom-spotify {
 	background-color: @background-alt;
-	color: @white;
+	color: @black;
 }
 
 #custom-spotify.paused {
 	background-color: @background-alt;
-	color: @white;
+	color: @black;
 }
 
 #custom-spotify.playing {
@@ -215,12 +215,12 @@ window#waybar.empty #window {
     animation: gradient 10s ease infinite;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
     font-weight: 900;
-    color: @white;
+    color: @black;
 }
 
 #custom-spotify.offline {
 	background-color: @red;
-	color: @white;
+	color: @black;
 }
 
 /** ********** Idle Inhibitor ********** **/

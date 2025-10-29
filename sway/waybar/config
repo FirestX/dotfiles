@@ -21,8 +21,8 @@
     "fixed-center": true, 			// Center modules position
     "ipc": true, 					// Control waybar with `swaymsg bar` commands
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window", "custom/spotify"],
     "modules-center": ["clock"],
-	//"modules-center": ["custom/spotify"],
-    "modules-right": ["custom/themes", "idle_inhibitor", "pulseaudio", "backlight", "memory", "temperature", "network", "sway/language", "battery", "tray"],
+	  //"modules-center": ["custom/spotify"],
+    "modules-right": ["pulseaudio", "backlight", "memory", "temperature", "network", "sway/language", "battery", "tray"],
 }

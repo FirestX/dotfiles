@@ -233,6 +233,7 @@
     },
 
 	"temperature": {
+    "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
 		"format": " {temperatureC}°C",
         "format-alt": " {temperatureC}°C",
         "tooltip": true,
