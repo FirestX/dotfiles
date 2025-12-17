@@ -24,7 +24,7 @@ workspace_layout default
 xwayland enable
 focus_follows_mouse yes
 floating_modifier $mod normal
-mouse_warping none
+mouse_warping output
 popup_during_fullscreen smart
 workspace_auto_back_and_forth no
 focus_on_window_activation smart
@@ -36,7 +36,7 @@ set $foot ~/.config/sway/scripts/foot
 set $volume ~/.config/sway/scripts/volume
 set $backlight ~/.config/sway/scripts/brightness
 set $screenshot ~/.config/sway/scripts/screenshot
-set $flameshot /usr/bin/flameshot gui
+set $flameshot /usr/bin/flameshot
 set $lockscreen ~/.config/sway/scripts/lockscreen
 set $wlogout ~/.config/sway/scripts/wlogout
 set $colorpicker ~/.config/sway/scripts/colorpicker
@@ -126,18 +126,17 @@ bindsym XF86AudioRaiseVolume 	exec "$volume --inc"
 bindsym XF86AudioLowerVolume 	exec "$volume --dec"
 bindsym XF86AudioMute 			exec "$volume --toggle"
 bindsym XF86AudioMicMute 		exec "$volume --toggle-mic"
-bindsym XF86AudioNext 			exec "mpc next"
-bindsym XF86AudioPrev 			exec "mpc prev"
-bindsym XF86AudioPlay 			exec "mpc toggle"
+bindcode 74 			exec "playerctl next"
+bindcode 72 			exec "playerctl previous"
+bindcode 73 			exec "playerctl play-pause"
 bindsym XF86AudioStop 			exec "mpc stop"
 bindsym XF86PowerOff            exec $rofi_powermenu
 
 # -- Screenshots --
-bindsym Print 					exec --no-startup-id $flameshot
 #bindsym $alt+Print 			exec "$screenshot --in5"
 #bindsym Shift+Print 			exec "$screenshot --in10"
 #bindsym Control+Print 			exec "$screenshot --win"
-#bindsym $mod+Print 			exec "$screenshot --area"
+bindsym Print 			exec "$screenshot --area"
 
 # -- Lockscreen --
 bindsym $alt+Control+l 			exec "$lockscreen"
