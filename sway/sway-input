@@ -9,14 +9,16 @@ input "*" {
     tap enabled
     natural_scroll disabled
     middle_emulation enabled
-	pointer_accel 0.3
+	pointer_accel -0.7
 }
 
 # Keyboard Layout
 input "type:keyboard" {
-    xkb_layout it,ru,us
-    xkb_variant ,,colemak
-    xkb_options grp:alt_shift_toggle
+    xkb_layout it,ru
+    xkb_variant ,
+    xkb_options grp:caps_toggle
+    xkb_capslock disabled
+    xkb_numlock enabled
     repeat_delay 300
     repeat_rate 30
 }
