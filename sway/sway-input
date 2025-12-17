@@ -10,6 +10,7 @@ input "*" {
     natural_scroll enabled
     middle_emulation enabled
 	pointer_accel 0.3
+  xkb_numlock enabled
 }
 
 # Keyboard Layout
