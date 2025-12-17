@@ -36,6 +36,9 @@ return {
         "vimdoc",
         "html",
         "css",
+        "javascript",
+        "typescript",
+        "svelte",
         -- !
         "c_sharp",
         "razor"
@@ -61,7 +64,8 @@ return {
         "html-lsp",
         "css-lsp",
         "eslint-lsp",
-        "typescript-language-server",
+        "vtsls",
+        "svelte-language-server",
         "json-lsp",
         "rust-analyzer",
         -- !

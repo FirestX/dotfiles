@@ -9,7 +9,7 @@ input "*" {
     tap enabled
     natural_scroll disabled
     middle_emulation enabled
-	pointer_accel -0.7
+	  pointer_accel -0.7
 }
 
 # Keyboard Layout

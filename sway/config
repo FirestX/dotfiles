@@ -67,28 +67,29 @@ exec_always /usr/bin/autotiling
 ##-- Keybindings -------------------------
 
 # -- Terminal : alacritty --
-#bindsym $mod+Return 			exec $alacritty
-#bindsym $mod+Shift+Return 		exec $alacritty -f
+bindsym $mod+Return 			exec $alacritty
+bindsym $mod+Shift+Return 		exec $alacritty -f
 #bindsym $mod+$alt+Return 		exec $alacritty -F
 
 # -- Terminal : ghostty --
 #bindsym $mod+Return 			exec ghostty
 
 # -- Terminal :foot --
-bindsym $mod+Return 			exec $foot
-bindsym $mod+Shift+Return 		exec $foot -f
+# bindsym $mod+Return 			exec $foot
+# bindsym $mod+Shift+Return 		exec $foot -f
 #bindsym $mod+$alt+Return 		exec $foot -s
 #bindsym $mod+t 				exec $foot -F
 
 # -- GUI Apps --
-bindsym $mod+n 			        exec $files
 bindsym $mod+F1 			    exec $editor
 bindsym $mod+w 			        exec $browser
 bindsym $mod+t                  exec $telegram
+bindsym $mod+o            exec obsidian
 
 # -- CLI Apps --
 bindsym $alt+Control+v 			exec --no-startup-id "$open_in_alacritty -e nvim"
-bindsym $alt+Control+r 			exec --no-startup-id "$open_in_alacritty -e ranger"
+bindsym $mod+n 			      exec --no-startup-id "$open_in_alacritty -e ranger"
+# bindsym $alt+Control+r 			exec --no-startup-id "$open_in_alacritty -e ranger"
 bindsym $alt+Control+h 			exec --no-startup-id "$open_in_alacritty -e htop"
 
 # -- Rofi --
@@ -232,7 +233,7 @@ bindsym $mod+$alt+Right resize grow width 10 px or 10 ppt
 
 ## Sticky floating windows (floating only)
 ##
-bindsym $mod+o sticky toggle, $send-notify 'Toggled Sticky'
+# bindsym $mod+o sticky toggle, $send-notify 'Toggled Sticky'
 
 #------
 
