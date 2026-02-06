@@ -4,7 +4,7 @@ require "nvchad.options"
 
 vim.o.relativenumber = true
 vim.o.number = true
-vim.o.autoread = true 
+vim.o.autoread = true
 vim.o.showtabline = 2
 
 -- Only show filename in tabs
