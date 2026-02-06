@@ -83,6 +83,7 @@ bindsym $mod+Shift+Return 		exec $alacritty -f
 # -- GUI Apps --
 bindsym $mod+F1 			    exec $editor
 bindsym $mod+w 			        exec $browser
+bindsym $mod+Shift+n 		    exec $files
 bindsym $mod+t                  exec $telegram
 bindsym $mod+o            exec obsidian
 
