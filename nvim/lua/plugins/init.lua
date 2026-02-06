@@ -39,6 +39,7 @@ return {
         "javascript",
         "typescript",
         "svelte",
+        "rust",
         -- !
         "c_sharp",
         "razor"
@@ -67,6 +68,7 @@ return {
         "vtsls",
         "svelte-language-server",
         "json-lsp",
+        "emmet-language-server",
         "rust-analyzer",
         -- !
         "roslyn",
@@ -243,5 +245,6 @@ return {
     },
     event = "LspAttach",
     opts = {},
-  }
+  },
 }
+
