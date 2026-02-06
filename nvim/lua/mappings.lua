@@ -25,11 +25,22 @@ map("n", "<leader>o", function() require("oil").open_float() end, { desc = "Open
 local harpoon = require("harpoon")
 harpoon:setup()
 
-map("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon: Add file" })
-map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon: Menu" })
+local function get_tab_list()
+  return harpoon:list("tab_" .. vim.api.nvim_get_current_tabpage())
+end
+
+map("n", "<leader>a", function()
+  get_tab_list():add()
+end, { desc = "Harpoon: Add file" })
+
+map("n", "<C-e>", function()
+  harpoon.ui:toggle_quick_menu(get_tab_list())
+end, { desc = "Harpoon: Menu" })
 
 for i = 1, 5 do
-  map("n", "<leader>" .. i, function() harpoon:list():select(i) end, { desc = "Harpoon: Jump to file " .. i })
+  map("n", "<leader>" .. i, function()
+    get_tab_list():select(i)
+  end, { desc = "Harpoon: Jump to file " .. i })
 end
 
 -- Copilot
@@ -64,7 +75,7 @@ require("tiny-code-action").setup({
 })
 
 -- Tabs
-map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
-map("n", "<leader>tc", "<cmd>tabclose<CR>", { desc = "Close tab" })
+map("n", "<leader>tc", "<cmd>tabnew<CR>", { desc = "New tab" })
+map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
 map("n", "<Tab>", "<cmd>tabnext<CR>", { desc = "Next tab" })
 map("n", "<S-Tab>", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
