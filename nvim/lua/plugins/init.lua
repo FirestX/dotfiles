@@ -39,6 +39,7 @@ return {
         "javascript",
         "typescript",
         "svelte",
+        "java",
         -- !
         "c_sharp",
         "razor"
@@ -65,8 +66,12 @@ return {
         "css-lsp",
         "eslint-lsp",
         "vtsls",
+        "typescript-language-server",
         "svelte-language-server",
         "json-lsp",
+        "jdtls",
+        "google-java-format",
+        "gradle-language-server",
         "rust-analyzer",
         -- !
         "roslyn",
@@ -222,6 +227,13 @@ return {
     opts = {
       suggestion = { enabled = true, auto_trigger = true },
       panel = { enabled = true },
+      filetypes = {
+        java = true,
+        javascript = true,
+        typescript = true,
+        lua = true,
+        ["*"] = true,
+      },
     }
   },
   {

@@ -307,7 +307,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 #assign [app_id="foot"] → workspace number 1
 for_window [app_id="zen"] move container to workspace number 2, focus
 for_window [app_id="thunar"] move container to workspace number 3, focus
-for_window [app_id="org.telegram.desktop"] move container to workspace number 4, focus
+for_window [app_id="org.telegram.desktop"] move container to workspace number 4, layout splith, resize set width 475 px, focus
 #assign [app_id="geany"] → workspace number 4
 
 for_window [window_role="pop-up"] floating enable

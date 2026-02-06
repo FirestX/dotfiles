@@ -4,7 +4,7 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 
 -- General
-map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 map("n", "x", '"_x', { desc = "Delete without copying to register" })
 map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down and center cursor" })
