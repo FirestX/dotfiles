@@ -69,5 +69,11 @@ return {
     -- 🟥 Diagnostics
     ---------------------------------------------------------------------------
     ["DiagnosticUnnecessary"]     = { fg = colors.unused, italic = true },       -- Unused code (e.g. unused 'using')
+    ---------------------------------------------------------------------------
+    -- ⬜ TabLine Transparency & Highlighting
+    ---------------------------------------------------------------------------
+    TabLine     = { bg = "none" },
+    TabLineFill = { bg = "none" },
+    TabLineSel  = { fg = "#1e2327", bg = colors.keyword, bold = true },
   },
 }
