@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+CONFIG="/etc/wireguard/wg0.conf"
+FULL_TUNNEL="0.0.0.0/0, ::/0"
+
+# Check if WireGuard interface is up
+if ip link show wg0 &>/dev/null; then
+    # WireGuard is connected, check tunnel mode
+    if sudo grep -q "$FULL_TUNNEL" "$CONFIG" 2>/dev/null; then
+        # Full tunnel mode
+        echo '{"text": "\ue729 Full", "tooltip": "VPN: Full Tunnel", "class": "connected-full"}'
+    else
+        # Split tunnel mode
+        echo '{"text": "\ue725 Split", "tooltip": "VPN: Split Tunnel", "class": "connected-split"}'
+    fi
+else
+    # WireGuard is disconnected
+    echo '{"text": "\uf4dc Off", "tooltip": "VPN: Disconnected", "class": "disconnected"}'
+fi

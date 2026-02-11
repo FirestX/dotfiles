@@ -84,6 +84,17 @@
         "on-click-right": "$HOME/.config/sway/theme/theme.sh --default",
     },
 
+	// waybar-vpn
+    "custom/vpn": {
+        "exec": "$HOME/.config/sway/waybar/vpn-status",
+        "interval": 5,
+        "format": "{}",
+        "tooltip": true,
+        "return-type": "json",
+        "on-click": "$HOME/scripts/split-tunnel.sh",
+        "on-click-right": "$HOME/scripts/wireguard_connection.sh",
+    },
+
 	// waybar-disk
 	// waybar-idle-inhibitor
     "idle_inhibitor": {

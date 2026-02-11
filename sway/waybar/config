@@ -24,5 +24,5 @@
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window", "custom/spotify"],
     "modules-center": ["clock"],
 	  //"modules-center": ["custom/spotify"],
-    "modules-right": ["pulseaudio", "backlight", "memory", "temperature", "network", "sway/language", "battery", "tray"],
+    "modules-right": ["pulseaudio", "backlight", "memory", "temperature", "network", "custom/vpn", "sway/language", "battery", "tray"],
 }
