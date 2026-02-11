@@ -304,6 +304,22 @@ window#waybar.empty #window {
     background-color: @selected;
 }
 
+/** ********** VPN ********** **/
+#custom-vpn.disconnected {
+	background-image: linear-gradient(to right, @red , @yellow);
+	color: @background;
+}
+
+#custom-vpn.connected-split {
+	background-image: linear-gradient(to right, @green , @cyan);
+	color: @background;
+}
+
+#custom-vpn.connected-full {
+	background-image: linear-gradient(to right, @blue , @magenta);
+	color: @background;
+}
+
 /** Common style **/
 #backlight, 
 #battery,
@@ -315,6 +331,7 @@ window#waybar.empty #window {
 #window,
 #mpd,
 #custom-spotify,
+#custom-vpn,
 #pulseaudio,
 #network,
 #language,

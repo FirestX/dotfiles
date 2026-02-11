@@ -23,6 +23,6 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-	//"modules-center": ["custom/spotify"],
-    "modules-right": ["pulseaudio", "backlight", "memory", "temperature", "network", "sway/language", "battery", "tray"],
+	  //"modules-center": ["custom/spotify"],
+    "modules-right": ["pulseaudio", "backlight", "memory", "temperature", "network", "custom/vpn", "sway/language", "battery", "tray"],
 }

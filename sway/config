@@ -118,6 +118,7 @@ bindsym $alt+t 				    exec $open_in_glow ~/Pictures/Cheatsheets/tmux.md
 
 # -- Misc --
 bindsym $mod+p 					exec $colorpicker
+bindsym $alt+v          exec ~/scripts/split-tunnel.sh
 #bindsym $mod+n 				exec nm-connection-editor
 #bindsym $mod+x 				exec $wlogout
 
