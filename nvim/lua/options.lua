@@ -29,6 +29,15 @@ function _G.custom_tabline()
 end
 
 vim.o.tabline = "%!v:lua.custom_tabline()"
-
+--
+-- Add this to your init.lua to save folds automatically
+vim.api.nvim_create_autocmd({"BufWinLeave"}, {
+  pattern = {"*"},
+  command = "silent! mkview",
+})
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+  pattern = {"*"},
+  command = "silent! loadview",
+})
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
