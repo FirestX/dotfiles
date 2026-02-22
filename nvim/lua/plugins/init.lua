@@ -45,6 +45,9 @@ return {
         "typescript",
         "svelte",
         "java",
+        "rust",
+        "cpp",
+        "c",
         -- !
         "c_sharp",
         "razor"
@@ -78,6 +81,7 @@ return {
         "google-java-format",
         "gradle-language-server",
         "rust-analyzer",
+        "clangd",
         -- !
         "roslyn",
         "rzls",
