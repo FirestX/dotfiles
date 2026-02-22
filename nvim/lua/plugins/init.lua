@@ -45,6 +45,8 @@ return {
         "typescript",
         "svelte",
         "rust",
+        "cpp",
+        "c",
         -- !
         "c_sharp",
         "razor"
@@ -75,6 +77,7 @@ return {
         "json-lsp",
         "emmet-language-server",
         "rust-analyzer",
+        "clangd",
         -- !
         "roslyn",
         "rzls",
