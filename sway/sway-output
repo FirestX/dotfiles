@@ -22,3 +22,7 @@ output * bg /home/maksym/.config/sway/wallpapers/wallpaper.jpg fill
 #output eDP-1 scale 1
 #~ External monitor with twice scale
 #output HDMI-A-1 scale 2
+
+## Mirror/Duplicate displays
+output eDP-1 position 0,0
+output HDMI-A-1 position 0,0

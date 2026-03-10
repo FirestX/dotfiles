@@ -1,7 +1,5 @@
 *
 
-!nvim-minimal
-!nvim-minimal/**
 !nvim
 !nvim/**
 nvim/lazy-lock.json
