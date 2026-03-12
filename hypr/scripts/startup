@@ -34,3 +34,6 @@ nm-applet --indicator &
 
 # Start mpd
 exec mpd &
+
+# Start idle daemon
+~/.config/hypr/scripts/idle &
