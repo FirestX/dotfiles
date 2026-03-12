@@ -145,6 +145,7 @@ element-icon {
     text-color:                  inherit;
     size:                        24px;
     cursor:                      inherit;
+    vertical-align:              0.5;
 }
 element-text {
     background-color:            transparent;
