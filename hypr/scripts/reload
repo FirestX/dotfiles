@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+## Reload Hyprland config and restart waybar
+
+CONFIG="$HOME/.config/hypr/waybar/config"
+STYLE="$HOME/.config/hypr/waybar/style.css"
+
+hyprctl reload
+
+killall -q waybar
+sleep 0.5
+waybar --bar main-bar --log-level error --config ${CONFIG} --style ${STYLE} &
