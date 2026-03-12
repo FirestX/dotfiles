@@ -13,16 +13,6 @@
         "on-scroll-down": "light -U 5%",
         "smooth-scrolling-threshold": 1,
     },
-    "backlight#2": {
-		"interval": 2,
-        //"device": "amdgpu_bl0",
-        "format": "{percent}%",
-		// Commands to execute on events
-        "on-scroll-up": "light -A 5%",
-        "on-scroll-down": "light -U 5%",
-        "smooth-scrolling-threshold": 1,
-    },
-
 	// waybar-battery
     "battery": {
 		"interval": 60,
@@ -99,8 +89,10 @@
 
 	// waybar-clock
     "clock": {
+		"interval": 60,
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "",
+        "format": "{:%d - %H:%M}",
+        "format-alt": " {:%a %b %d, %G}",
     },
     "clock#2": {
 		"interval": 60,
@@ -223,16 +215,57 @@
         "on-click": "mpc next",
     },
 
+	// waybar-temperature
+    "temperature": {
+        "interval": 10,
+        "format": "",
+        "format-critical": "",
+        "critical-threshold": 80,
+        "tooltip": true,
+        "tooltip-format": "{temperatureC}°C",
+    },
+    "temperature#2": {
+        "interval": 10,
+        "format": "{temperatureC}°C",
+        "format-critical": "{temperatureC}°C",
+        "critical-threshold": 80,
+        "tooltip": false,
+    },
+
+	// waybar-language
+    "hyprland/language": {
+        "format": "",
+        "tooltip": false,
+    },
+    "hyprland/language#2": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-it": "IT",
+        "format-ru": "RU",
+        "tooltip": false,
+    },
+
+	// waybar-vpn
+    "custom/vpn": {
+        "exec": "$HOME/.config/hypr/waybar/vpn-status",
+        "interval": 5,
+        "format": "{}",
+        "tooltip": true,
+        "return-type": "json",
+        "on-click": "$HOME/scripts/split-tunnel.sh",
+        "on-click-right": "$HOME/scripts/wireguard_connection.sh",
+    },
+
 	// waybar-network
     "network": {
 		"interval": 5,
         //"interface": "wlan*", // (Optional) To force the use of this interface, set it for netspeed to work
-        "format-wifi": "直",
-        "format-ethernet": "",
-        "format-linked": "",
-        "format-disconnected": "睊",
-        "format-disabled": "睊",
-        "tooltip-format": " {ifname} via {gwaddr}",
+        "format-wifi": "󰤨 ",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰤭 Disconnected",
+        "format-disabled": "󰤭 Disabled",
+        "tooltip-format": "󰤨 {ifname} via {gwaddr}",
         //"on-click": "[[ ! `pidof nm-connection-editor` ]] && nm-connection-editor || pkill nm-connection-e",
         "on-click": "~/.config/hypr/scripts/rofi_network",
     },
@@ -252,7 +285,7 @@
     "pulseaudio": {
         //"format": "{volume}% {icon} {format_source}",
         "format": "{icon}",
-        "format-muted": "",
+        "format-muted": " ",
         "format-bluetooth": "",
         "format-bluetooth-muted": "",
         "format-source": "",
@@ -296,6 +329,19 @@
          "timeout": 30
     },
 
+	// waybar-hyprland-submap (sway/mode equivalent)
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>",
+        "tooltip": false,
+    },
+
+	// waybar-hyprland-window (sway/window equivalent)
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "icon": false,
+    },
+
 	// waybar-wlr-workspaces
     "hyprland/workspaces": {
          "format": "{icon}",
@@ -305,7 +351,7 @@
              "1": "",
              "2": "",
              "3": "",
-             "4": "",
+             "4": "",
              "5": "",
              "6": "漣",
              "7": "",

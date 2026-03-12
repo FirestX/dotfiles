@@ -253,9 +253,72 @@ window#waybar.hidden {
 #bluetooth.pairable{
 }
 
+/** ********** Submap (mode) ********** **/
+#submap {
+	background-color: @magenta;
+	color: @background;
+	border-radius: 10px;
+	margin: 6px 6px 6px 6px;
+	padding: 4px 8px;
+	font-weight: bold;
+}
+
+/** ********** Window ********** **/
+#window {
+	background-color: @background-alt1;
+	color: @foreground;
+	border-radius: 10px;
+	margin: 6px 0px 6px 6px;
+	padding: 4px 8px;
+}
+window#waybar.empty #window {
+	background-color: transparent;
+}
+
+/** ********** Temperature ********** **/
+#temperature {
+	color: @yellow;
+}
+#temperature.critical {
+	color: @red;
+}
+
+/** ********** Language ********** **/
+#language {
+	color: @magenta;
+	background-color: @background-alt2;
+	border-radius: 10px;
+	margin: 6px 6px 6px 0px;
+	padding: 4px 6px;
+}
+
+/** ********** VPN ********** **/
+#custom-vpn {
+	color: @foreground;
+	border-radius: 10px;
+	margin: 6px 6px 6px 0px;
+	padding: 4px 8px;
+}
+#custom-vpn.disconnected {
+	background-color: @background-alt2;
+	color: @red;
+}
+#custom-vpn.connected-split {
+	background-color: @background-alt2;
+	color: @green;
+}
+#custom-vpn.connected-full {
+	background-color: @background-alt2;
+	color: @blue;
+}
+
 /** ********** Clock ********** **/
 #clock {
 	color: @blue;
+	background-color: @background-alt2;
+	border-radius: 10px;
+	margin: 6px 6px 6px 0px;
+	padding: 4px 6px;
 }
 
 /** ********** WLR Desktop ********** **/
@@ -282,13 +345,13 @@ window#waybar.hidden {
 /** ********** Common style ********** **/
 #backlight, 
 #battery,
-#clock,
 #cpu,
 #disk,
 #memory,
 #pulseaudio,
 #network,
-#bluetooth {
+#bluetooth,
+#temperature {
 	background-color: @background-alt2;
 	border-radius: 10px 0px 0px 10px;
 	margin: 6px 0px 6px 0px ;
@@ -297,13 +360,13 @@ window#waybar.hidden {
 
 #backlight.2, 
 #battery.2,
-#clock.2,
 #cpu.2,
 #disk.2,
 #memory.2,
 #pulseaudio.2,
 #network.2,
-#bluetooth.2 {
+#bluetooth.2,
+#temperature.2 {
 	background-color: @background-alt1;
 	color: @foreground;
 	font-size: 12px;
