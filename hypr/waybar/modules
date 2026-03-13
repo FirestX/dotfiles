@@ -90,9 +90,20 @@
 	// waybar-clock
     "clock": {
 		"interval": 60,
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "format": "{:%d - %H:%M}",
         "format-alt": "{:%a %b %d, %G}",
+        "calendar": {
+             "mode"          : "month",
+             "mode-mon-col"  : 3,
+             "weeks-pos"     : "",
+             "on-scroll"     : 1,
+             "format": {
+                  "months":     "<span color='#b4a1db'><b>{}</b></span>",
+                  "days":       "<span color='#f1fcf9'><b>{}</b></span>",
+                  "today":      "<span color='#e49186'><b><u>{}</u></b></span>"
+             }
+        }
     },
     "clock#2": {
 		"interval": 60,
