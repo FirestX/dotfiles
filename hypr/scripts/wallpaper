@@ -4,6 +4,6 @@
 ##
 ## Set Wallpaper in Hyprland
 
-WALLPAPER="$HOME/.config/hypr/wallpapers/wallpaper.jpg"
+WALLPAPER='/home/maksym/.config/hypr/wallpapers/wallpaper.jpg'
 
 swaybg --output '*' --mode fill --image "$WALLPAPER"
