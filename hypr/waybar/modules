@@ -261,7 +261,7 @@
 		"interval": 5,
         //"interface": "wlan*", // (Optional) To force the use of this interface, set it for netspeed to work
         "format-wifi": "󰤨 ",
-        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-ethernet": "󰈀 ",
         "format-linked": "󰈀 {ifname} (No IP)",
         "format-disconnected": "󰤭 Disconnected",
         "format-disabled": "󰤭 Disabled",
@@ -273,7 +273,7 @@
 		"interval": 5,
         //"interface": "wlan*", // (Optional) To force the use of this interface, set it for netspeed to work
         "format-wifi": "{essid}",
-        "format-ethernet": "{ipaddr}/{cidr}",
+        "format-ethernet": "{ifname}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected",
         "format-disabled": "Disabled",
@@ -297,7 +297,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [" ", " ", " "]
         },
         "scroll-step": 5.0,
 		// Commands to execute on events
