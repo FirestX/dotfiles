@@ -203,7 +203,8 @@ bindsym $mod+Right focus right
 ## The opposite of `focus parent`, sets the focus to the last focused child container.
 #bindsym $mod+z focus child
 ## Automatically sets focus to the adjacent container.
-#bindsym $mod+Tab focus next
+bindsym $mod+Tab focus next
+bindsym $mod+Shift+Tab focus prev
 ## Toggles focus between floating/tiling containers.
 bindsym $mod+Shift+space focus mode_toggle
 

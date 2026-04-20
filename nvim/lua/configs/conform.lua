@@ -3,6 +3,8 @@
 local opts = {
   async = true,
   formatters_by_ft = {
+    lua = { "stylua" },
+    luau = { "stylua" },
     cs = { "csharpier_ramboe" },
     csproj = { "csharpier_ramboe" }
   },

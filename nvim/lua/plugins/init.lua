@@ -1,5 +1,25 @@
 return {
   {
+    "lopi-py/luau-lsp.nvim",
+    ft = "luau",
+    config = function()
+      require("luau-lsp").setup {
+        platform = {
+          type = "roblox",
+        },
+        sourcemap = {
+          enabled = true,
+          autogenerate = true,
+          generator_cmd = { "argon", "sourcemap", "--watch", "--non-scripts", "-o", "sourcemap.json" },
+        },
+        plugin = {
+          enabled = true,
+          port = 8000,
+        },
+      }
+    end,
+  },
+  {
     "folke/which-key.nvim",
     lazy = false,
   },
@@ -50,7 +70,8 @@ return {
         "c",
         -- !
         "c_sharp",
-        "razor"
+        "razor",
+        "luau"
       },
     },
   },
@@ -85,6 +106,7 @@ return {
         -- !
         "roslyn",
         "rzls",
+        "luau-lsp",
         -- "csharp-language-server",
         -- "omnisharp",
       },
