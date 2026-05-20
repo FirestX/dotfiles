@@ -8,7 +8,7 @@
 /** ********** Fonts ********** **/
 * {
     font-family: "JetBrains Mono", "Iosevka Nerd Font", archcraft, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /** ********** Waybar Window ********** **/
@@ -29,7 +29,7 @@ window#waybar.hidden {
 #custom-menu {
 	background-color: @background-alt1;
 	color: @magenta;
-	font-size: 18px;
+	font-size: 13px;
 	border-radius: 0px 14px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	padding: 2px 8px 2px 8px;
@@ -41,7 +41,7 @@ window#waybar.hidden {
 
 #custom-power {
 	background-color: @red;
-	font-size: 16px;
+	font-size: 13px;
 }
 
 #custom-power, #custom-themes {
@@ -94,7 +94,7 @@ window#waybar.hidden {
 
 #mpd {
 	color: @foreground;
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: bold;
 }
 #mpd.disconnected {
@@ -125,7 +125,7 @@ window#waybar.hidden {
 }
 #mpd.2,#mpd.3,#mpd.4 {
 	background-color: @background-alt1;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 /** ********** Spotify ********** **/
@@ -135,7 +135,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	margin: 6px 0px 6px 6px ;
 	padding: 4px 8px;
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: bold;
 }
 
@@ -369,7 +369,7 @@ window#waybar.empty #window {
 #temperature.2 {
 	background-color: @background-alt1;
 	color: @foreground;
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: bold;
 	border-radius: 0px 10px 10px 0px;
 	margin: 6px 6px 6px 0px ;

@@ -147,7 +147,7 @@
 	// waybar-memory
     "memory": {
          "interval": 10,
-         "format": "",
+         "format": "󰍛",
     },
     "memory#2": {
          "interval": 10,
@@ -247,7 +247,7 @@
 
 	// waybar-vpn
     "custom/vpn": {
-        "exec": "$HOME/.config/hypr/waybar/vpn-status",
+        "exec": "$HOME/dotfiles/.config/hypr/scripts/vpn-status",
         "interval": 5,
         "format": "{}",
         "tooltip": true,

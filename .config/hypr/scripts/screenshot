@@ -5,14 +5,14 @@
 ## Script to take screenshots with grim, slurp (in Wayland)
 
 # Get Colors
-DIR="$HOME/.config/sway"
+DIR="$HOME/.config/hypr"
 background="`cat $DIR/rofi/shared/colors.rasi | grep 'background:' | cut -d':' -f2 | tr -d ' '\;`"
 accent="`cat $DIR/rofi/shared/colors.rasi | grep 'selected:' | cut -d':' -f2 | tr -d ' '\;`"
 
-iDIR="$HOME/.config/sway/mako/icons"
+iDIR="$HOME/.config/hypr/mako/icons"
 
 time=`date +%Y-%m-%d-%H-%M`
-geometry=`swaymsg -pt get_outputs | grep 'Current mode:' | cut -d':' -f2 | cut -d'@' -f1 | tr -d ' '`
+geometry=`hyprctl monitors | grep 'Monitor' | head -1 | awk '{print $3}' | cut -d'@' -f1`
 dir="`xdg-user-dir PICTURES`/Screenshots"
 file="Screenshot_${time}.png"
 
@@ -50,7 +50,7 @@ shot10 () {
 }
 
 shotwin () {
-	cd ${dir} && grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | tee "$file" | wl-copy
+	cd ${dir} && grim -g "$(hyprctl activewindow -j | jq -r '.at[0],.at[1],.size[0],.size[1]' | paste -sd',' - | awk '{print $1 " " $2 " " $3 "x" $4}')" - | tee "$file" | wl-copy
 	notify_view
 }
 

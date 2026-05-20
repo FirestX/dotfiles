@@ -9,8 +9,8 @@ fi
 lockscreen="$HOME/.config/hypr/scripts/lockscreen"
 
 swayidle -w \
-    timeout 600 "$lockscreen" \
-    timeout 800 'hyprctl dispatch dpms off' \
+    timeout 1200 "$lockscreen" \
+    timeout 1800 'hyprctl dispatch dpms off' \
     resume 'hyprctl dispatch dpms on' \
     before-sleep 'mpc pause' \
     before-sleep "$lockscreen" &

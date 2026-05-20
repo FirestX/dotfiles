@@ -9,4 +9,4 @@ hyprctl reload
 
 killall -q waybar
 sleep 0.5
-waybar --bar main-bar --log-level error --config ${CONFIG} --style ${STYLE} &
+waybar --log-level error --config ${CONFIG} --style ${STYLE} &

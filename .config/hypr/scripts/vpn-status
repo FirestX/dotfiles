@@ -6,7 +6,7 @@ FULL_TUNNEL="0.0.0.0/0, ::/0"
 # Check if WireGuard interface is up
 if ip link show wg0 &>/dev/null; then
     # WireGuard is connected, check tunnel mode
-    if sudo grep -q "$FULL_TUNNEL" "$CONFIG" 2>/dev/null; then
+    if sudo grep -q "$FULL_TUNNEL" "$CONFIG"; then
         # Full tunnel mode
         echo '{"text": "\ue729 Full", "tooltip": "VPN: Full Tunnel", "class": "connected-full"}'
     else
