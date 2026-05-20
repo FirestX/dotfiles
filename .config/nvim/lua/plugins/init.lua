@@ -10,13 +10,25 @@ return {
         sourcemap = {
           enabled = true,
           autogenerate = true,
-          generator_cmd = { "argon", "sourcemap", "--watch", "--non-scripts", "-o", "sourcemap.json" },
+          generator_cmd = { "argon", "sourcemap", ".", "--watch", "--non-scripts", "-o", "sourcemap.json" },
+          sourcemap_file = "sourcemap.json",
         },
         plugin = {
           enabled = true,
           port = 8000,
         },
       }
+
+      -- Enable file watcher capabilities for sourcemap updates
+      vim.lsp.config("luau-lsp", {
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
+      })
     end,
   },
   {
