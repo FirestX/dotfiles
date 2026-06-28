@@ -27,7 +27,7 @@ lt() {
 }
 alias l.='eza -ald --group-directories-first --icons .*'
 
-alias conf='cd ~/.config'
+alias conf='cd ~/dotfiles'
 alias big='expac -H M "%m\t%n" | sort -h | nl'
 
 alias vpn='~/scripts/wireguard_connection.sh'
