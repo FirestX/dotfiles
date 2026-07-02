@@ -1,4 +1,4 @@
-require("nvchad.mappings")
+require "nvchad.mappings"
 
 local map = vim.keymap.set
 vim.g.mapleader = " "
@@ -12,17 +12,19 @@ map("n", "n", "nzzzv", { desc = "Next search and center" })
 map("n", "N", "Nzzzv", { desc = "Previous search and center" })
 
 -- FZF
-local fzf = require("fzf-lua")
+local fzf = require "fzf-lua"
 
 map("n", "<leader>ff", fzf.files, { noremap = true, silent = true, desc = "Find files (fzf)" })
 map("n", "<leader>fg", fzf.live_grep, { noremap = true, silent = true, desc = "Live grep" })
 map("n", "<leader>fb", fzf.buffers, { noremap = true, silent = true, desc = "Find buffers" })
 
 -- Oil
-map("n", "<leader>o", function() require("oil").open_float() end, { desc = "Open Oil file explorer" })
+map("n", "<leader>o", function()
+  require("oil").open_float()
+end, { desc = "Open Oil file explorer" })
 
 -- Harpoon
-local harpoon = require("harpoon")
+local harpoon = require "harpoon"
 harpoon:setup()
 
 local function get_tab_list()
@@ -50,8 +52,10 @@ map("i", "<Tab>", function()
 end, { expr = true, replace_keycodes = false, desc = "Accept Copilot suggestion" })
 
 -- Code Actions
-map("n", "<leader>ca", function() require("tiny-code-action").code_action() end, { noremap = true, silent = true, desc = "Code Action" })
-require("tiny-code-action").setup({
+map("n", "<leader>ca", function()
+  require("tiny-code-action").code_action()
+end, { noremap = true, silent = true, desc = "Code Action" })
+require("tiny-code-action").setup {
   picker = {
     "buffer",
     opts = {
@@ -67,12 +71,12 @@ require("tiny-code-action").setup({
         select = "<CR>", -- Keys to select action (can be string or table)
       },
       custom_keys = {
-        { key = 'm', pattern = 'Fill match arms' },
-        { key = 'r', pattern = 'Rename.*' }, -- Lua pattern matching
+        { key = "m", pattern = "Fill match arms" },
+        { key = "r", pattern = "Rename.*" }, -- Lua pattern matching
       },
     },
   },
-})
+}
 
 -- Tabs
 map("n", "<leader>tc", "<cmd>tabnew<CR>", { desc = "New tab" })
