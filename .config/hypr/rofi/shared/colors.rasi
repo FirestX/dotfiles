@@ -3,10 +3,10 @@
 /* Colors */
 
 * {
-    background:     #20262C;
-    background-alt: #2a323b;
-    foreground:     #f1fcf9;
-    selected:       #b4a1db;
-    active:         #74dd91;
-    urgent:         #db86ba;
+    background:     rgba(24, 24, 24, 0.85); /* Matches Quickshell PowerMenu 'base' */
+    background-alt: #333333;             /* Matches Quickshell 'highlight' */
+    foreground:     #d0daed;             /* Matches Quickshell 'textLight' */
+    selected:       #fccf8a;             /* Matches Quickshell 'accent' */
+    active:         #f2d793;             /* Matches Quickshell 'cbodyPowerMenu' */
+    urgent:         #fc5870;             /* Matches Quickshell 'danger' */
 }
