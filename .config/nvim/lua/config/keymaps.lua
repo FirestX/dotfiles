@@ -14,6 +14,9 @@ map("n", "N", "Nzzzv", { desc = "Previous search and center" })
 -- Commenting
 map({ "n", "v" }, "<leader>/", "gc", { remap = true, desc = "Toggle Comment" })
 
+-- Grep
+map("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "Grep" })
+
 -- Tab navigation
 map("n", "<S-h>", "gT", { desc = "Previous Tab" })
 map("n", "<S-l>", "gt", { desc = "Next Tab" })
