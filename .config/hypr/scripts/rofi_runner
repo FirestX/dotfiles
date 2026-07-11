@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+# Directory containing your custom scripts
+CUSTOM_DIR="$HOME/scripts/"
+RASI="$HOME/.config/hypr/rofi/runner.rasi"
 
-# Import Current Theme
-DIR="$HOME/.config/hypr"
-RASI="$DIR/rofi/runner.rasi"
+SELECTED=$(ls "$CUSTOM_DIR" | rofi -dmenu -theme "${RASI}" -p "Run Custom")
 
-# Run
-rofi \
-    -show run \
-	-theme ${RASI}
+if [[ -n "$SELECTED" ]]; then
+	"$CUSTOM_DIR/$SELECTED"
+fi
