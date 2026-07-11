@@ -218,6 +218,7 @@
 	// waybar-temperature
     "temperature": {
         "interval": 10,
+		"hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
         "format": "",
         "format-critical": "",
         "critical-threshold": 80,
@@ -226,6 +227,7 @@
     },
     "temperature#2": {
         "interval": 10,
+		"hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
         "format": "{temperatureC}°C",
         "format-critical": "{temperatureC}°C",
         "critical-threshold": 80,
@@ -348,16 +350,16 @@
          "sort-by-number": true,
          "active-only": false,
          "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
-             "5": "",
-             "6": "漣",
-             "7": "",
-             "8": "",
-             "9": "",
-             "10": "ﳴ",
+             "1": "I",
+             "2": "II",
+             "3": "III",
+             "4": "IV",
+             "5": "V",
+             "6": "VI",
+             "7": "VII",
+             "8": "VIII",
+             "9": "IX",
+             "10": "X",
              "urgent": "",
              "focused": "",
              "default": ""

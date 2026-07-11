@@ -2,17 +2,17 @@
  * Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 */
 
-/** ********** Colors ********** **/
-@define-color background      #20262C;
-@define-color background-alt1 #2a323b;
-@define-color background-alt2 #353f4a;
-@define-color foreground      #f1fcf9;
-@define-color selected        #b4a1db;
-@define-color black           #20262c;
-@define-color red             #db86ba;
-@define-color green           #74dd91;
-@define-color yellow          #e49186;
-@define-color blue            #75dbe1;
-@define-color magenta         #b4a1db;
-@define-color cyan            #9ee9ea;
-@define-color white           #f1fcf9;
+/** ********** Colors (Helios Theme) ********** **/
+@define-color background      #181818;
+@define-color background-alt1 #333333;
+@define-color background-alt2 #121212;
+@define-color foreground      #d0daed;
+@define-color selected        #fccf8a;
+@define-color black           #121212;
+@define-color red             #ff723e;
+@define-color green           #c7e0ca;
+@define-color yellow          #fcd37b;
+@define-color blue            #92bbcc;
+@define-color magenta         #a0675d;
+@define-color cyan            #6f8ebc;
+@define-color white           #d0daed;
