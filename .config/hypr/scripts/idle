@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Kill existing swayidle
-if [[ `pidof swayidle` ]]; then
+if [[ $(pidof swayidle) ]]; then
 	killall -q swayidle
 	sleep 0.5
 fi
@@ -9,8 +9,7 @@ fi
 lockscreen="$HOME/.config/hypr/scripts/lockscreen"
 
 swayidle -w \
-    timeout 1200 "$lockscreen" \
-    timeout 1800 'hyprctl dispatch dpms off' \
-    resume 'hyprctl dispatch dpms on' \
-    before-sleep 'mpc pause' \
-    before-sleep "$lockscreen" &
+	timeout 1200 "$lockscreen" \
+	timeout 7200 'systemctl suspend' \
+	before-sleep 'mpc pause' \
+	before-sleep "$lockscreen" &
