@@ -7,19 +7,19 @@ DIR="$HOME/.config/hypr"
 RASI="$DIR/rofi/music.rasi"
 
 # Theme Elements
-status="`mpc status`"
+status="$(playerctl status 2>/dev/null)"
 if [[ -z "$status" ]]; then
 	prompt='Offline'
-	mesg="MPD is Offline"
+	mesg="No Player Found"
 else
-	prompt="`mpc -f "%artist%" current`"
-	mesg="`mpc -f "%title%" current` :: `mpc status | grep "#" | awk '{print $3}'`"
+	prompt="$(playerctl metadata artist 2>/dev/null || echo "Unknown Artist")"
+	mesg="$(playerctl metadata title 2>/dev/null || echo "Unknown Title")"
 fi
 
 # Options
-layout=`cat ${RASI} | grep 'USE_ICON' | cut -d'=' -f2`
+layout=$(cat ${RASI} | grep 'USE_ICON' | cut -d'=' -f2)
 if [[ "$layout" == 'NO' ]]; then
-	if [[ ${status} == *"[playing]"* ]]; then
+	if [[ "${status}" == "Playing" ]]; then
 		option_1=" Pause"
 	else
 		option_1=" Play"
@@ -30,37 +30,23 @@ if [[ "$layout" == 'NO' ]]; then
 	option_5=" Repeat"
 	option_6=" Random"
 else
-	if [[ ${status} == *"[playing]"* ]]; then
-		option_1=""
+	if [[ "${status}" == "Playing" ]]; then
+		option_1=" "
 	else
-		option_1=""
+		option_1=" "
 	fi
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
+	option_2=" "
+	option_3="󰙤 "
+	option_4="󰙢 "
+	option_5=" "
+	option_6=" "
 fi
 
 # Toggle Actions
 active=''
 urgent=''
 # Repeat
-if [[ ${status} == *"repeat: on"* ]]; then
-    active="-a 4"
-elif [[ ${status} == *"repeat: off"* ]]; then
-    urgent="-u 4"
-else
-    option_5=" Parsing Error"
-fi
 # Random
-if [[ ${status} == *"random: on"* ]]; then
-    [ -n "$active" ] && active+=",5" || active="-a 5"
-elif [[ ${status} == *"random: off"* ]]; then
-    [ -n "$urgent" ] && urgent+=",5" || urgent="-u 5"
-else
-    option_6=" Parsing Error"
-fi
 
 # Rofi CMD
 rofi_cmd() {
@@ -82,39 +68,39 @@ iDIR="$HOME/.config/hypr/mako/icons"
 notify_song="notify-send -h string:x-canonical-private-synchronous:sys-notify-song -u low -i ${iDIR}/music.png"
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		mpc -q toggle && ${notify_song} "`mpc -f "%artist%" current`"
+		playerctl play-pause && ${notify_song} "$(playerctl metadata artist 2>/dev/null)"
 	elif [[ "$1" == '--opt2' ]]; then
-		mpc -q stop
+		playerctl stop
 	elif [[ "$1" == '--opt3' ]]; then
-		mpc -q prev && ${notify_song} "`mpc -f "%artist%" current`"
+		playerctl previous && ${notify_song} "$(playerctl metadata artist 2>/dev/null)"
 	elif [[ "$1" == '--opt4' ]]; then
-		mpc -q next && ${notify_song} "`mpc -f "%artist%" current`"
+		playerctl next && ${notify_song} "$(playerctl metadata artist 2>/dev/null)"
 	elif [[ "$1" == '--opt5' ]]; then
-		mpc -q repeat
+		playerctl loop
 	elif [[ "$1" == '--opt6' ]]; then
-		mpc -q random
+		playerctl shuffle
 	fi
 }
 
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $option_1)
-		run_cmd --opt1
-        ;;
-    $option_2)
-		run_cmd --opt2
-        ;;
-    $option_3)
-		run_cmd --opt3
-        ;;
-    $option_4)
-		run_cmd --opt4
-        ;;
-    $option_5)
-		run_cmd --opt5
-        ;;
-    $option_6)
-		run_cmd --opt6
-        ;;
+$option_1)
+	run_cmd --opt1
+	;;
+$option_2)
+	run_cmd --opt2
+	;;
+$option_3)
+	run_cmd --opt3
+	;;
+$option_4)
+	run_cmd --opt4
+	;;
+$option_5)
+	run_cmd --opt5
+	;;
+$option_6)
+	run_cmd --opt6
+	;;
 esac

@@ -223,7 +223,7 @@
         "format-critical": "",
         "critical-threshold": 80,
         "tooltip": true,
-        "tooltip-format": "{temperatureC}°C",
+        "tooltip-format": "{temperatureC}°C"
     },
     "temperature#2": {
         "interval": 10,
@@ -231,7 +231,7 @@
         "format": "{temperatureC}°C",
         "format-critical": "{temperatureC}°C",
         "critical-threshold": 80,
-        "tooltip": false,
+        "tooltip": false
     },
 
 	// waybar-language
