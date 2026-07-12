@@ -40,6 +40,7 @@ exec hypridle &
 exec discord &
 exec Telegram &
 exec zen-browser &
+exec wl-paste --watch clipvault store --max-entry-age 1d &
 
 # Start idle daemon
 #~/.config/hypr/scripts/idle &

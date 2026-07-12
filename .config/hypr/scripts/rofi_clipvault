@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Path to the custom Rofi theme for clipvault
+RASI="$HOME/.config/hypr/rofi/clipvault.rasi"
+
+# Get the list of clipboard entries and pipe to rofi, displaying only column 2 (content)
+SELECTED=$(clipvault list | rofi -dmenu -theme "${RASI}" -display-columns 2 -p "Vault")
+
+# If an entry was selected, copy it to clipboard via clipvault get and wl-copy, and paste it using wtype
+if [[ -n "$SELECTED" ]]; then
+	echo "$SELECTED" | clipvault get | wl-copy
+	if command -v wtype &>/dev/null; then
+		wtype -M ctrl -k v -m ctrl
+	else
+		notify-send "Clipvault" "wtype is not installed. Install wtype to auto-paste."
+	fi
+fi
