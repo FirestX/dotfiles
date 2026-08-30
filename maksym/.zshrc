@@ -11,9 +11,11 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export DOTNET_ROOT=/usr/share/dotnet/
-export PATH=$PATH:$DOTNET_ROOT
 export PATH="$PATH:/home/maksym/.dotnet/tools:/home/maksym/.cargo/bin"
+
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 setopt nobeep # No beep setopt appendhistory # Immediately append history instead of overwriting 
 setopt histignorealldups # If a new command is a duplicate, remove the older one 
@@ -32,6 +34,9 @@ alias big='expac -H M "%m\t%n" | sort -h | nl'
 
 alias vpn='~/scripts/wireguard_connection.sh'
 
+alias cd='z'
+
+# Functions
 space() {
   df -h --output=source,size,used,avail / | tail -n1 | awk '{printf "Free: %s Total: %s Used: %s Drive: %s\n",$4,$2,$3,$1}'
 }
@@ -39,6 +44,8 @@ space() {
 chpwd() {
     la
 }
+
+eval "$(zoxide init zsh)"
 # Lazy load nvm for faster startup
 export NVM_DIR="$HOME/.nvm"
 nvm() {
