@@ -373,6 +373,10 @@ window#waybar.empty #window {
 #workspaces button.hidden {
 	color: @yellow;
 }
+#workspaces button:hover {
+	color: @selected;
+	background: @background-alt1;
+}
 
 /** ********** Common style ********** **/
 #backlight,
