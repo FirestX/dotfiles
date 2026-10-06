@@ -35,6 +35,8 @@ alias big='expac -H M "%m\t%n" | sort -h | nl'
 alias vpn='~/scripts/wireguard_connection.sh'
 
 alias cd='z'
+alias cat='mdcat'
+alias ssh="kitty +kitten ssh"
 
 # Functions
 space() {
@@ -43,6 +45,13 @@ space() {
 # Automatically list directory contents on cd
 chpwd() {
     la
+}
+
+unalias update
+update() {
+    echo "Creating pre-update Btrfs snapshot..."
+    sudo snapper create -c root -d "Manual Pre-Update: $(date '+%Y-%m-%d %H:%M')" --cleanup-algorithm number
+    paru "$@"
 }
 
 eval "$(zoxide init zsh)"
